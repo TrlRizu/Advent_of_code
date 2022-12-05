@@ -12,8 +12,9 @@ for line in lines:
     while len(S) < sz:
         S.append([])
     for i in range(len(S)):
-        if line[1+4*i] != ' ' and 'A'<=line[1+4*i]<='Z':
-            S[i].append(line[1+4*i])
+        c = line[1+4*i]
+        if c != ' ' and c.isalpha():
+            S[i].append(c)
 # print(S)
 found = False
 for command in lines:
@@ -29,8 +30,8 @@ for command in lines:
     MOVE = S[from_][:qty]
     S[from_] = S[from_][qty:]
     #part one
-    S[to_] = list(reversed(MOVE)) + S[to_] 
+    # S[to_] = list(reversed(MOVE)) + S[to_] 
     #part two
-    # S[to_] = MOVE + S[to_]
+    S[to_] = MOVE + S[to_]
 
-print(''.join([s[0] for s in S if len(s)>0]))
+print(''.join(s[0] for s in S if s))
