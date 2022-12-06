@@ -4,7 +4,7 @@ with open("6-input.txt") as f:
 def sol(n):
     i = 0
     while True:
-        if len(set(list(d[i:(i+n)]))) == n: return i+n; break          
+        if len(set(d[i:i+n])) == n: return i+n          
         i+=1
 #part 1
 print(sol(4))
