@@ -1,5 +1,3 @@
-
-import sys
 from collections import defaultdict
 
 data = open('7-input.txt').read().strip()
