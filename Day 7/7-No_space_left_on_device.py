@@ -8,19 +8,19 @@ lines = [x for x in data.split('\n')]
 size = defaultdict(int)
 path = []
 for line in lines:
-    words = line.strip().split()
-    # print(words)
-    if words[1] == 'cd':
-        if words[2] == '..':
+    cmd = line.strip().split()
+    # print(cmd)
+    if cmd[1] == 'cd':
+        if cmd[2] == '..':
             path.pop()
         else:
-            path.append(words[2])
-    elif words[1] == 'ls':
+            path.append(cmd[2])
+    elif cmd[1] == 'ls':
         continue
-    elif words[0] == 'dir':
+    elif cmd[0] == 'dir':
         continue
     else:
-        num = int(words[0])
+        num = int(cmd[0])
         # print(path)
         for i in range(len(path)+1):
             size['/'.join(path[:i])] += num
