@@ -11,24 +11,24 @@ DIR = [
     ]
 
 
-n = len(grid)
-m = len(grid[0])
+r = len(grid)
+c = len(grid[0])
 grid = np.array(grid)
 
 p1 = 0
 p2 = 0
-for i in range(n):
-    for j in range(m):
+for i in range(r):
+    for j in range(c):
         h = grid[i,j]
         count = 1
 
         if j == 0 or np.amax(grid[i, :j]) < h:
             p1 += 1
-        elif j == m-1 or np.amax(grid[i, (j+1):]) < h:
+        elif j == c-1 or np.amax(grid[i, (j+1):]) < h:
             p1 += 1
         elif i == 0 or np.amax(grid[:i, j]) < h:
             p1 += 1
-        elif i == n-1 or np.amax(grid[(i+1):, j]) < h:
+        elif i == r-1 or np.amax(grid[(i+1):, j]) < h:
             p1 += 1
 
         for di, dj in DIR:
@@ -36,12 +36,12 @@ for i in range(n):
             dist = 0
             ii += di
             jj += dj
-            while (0 <= ii < n and 0 <= jj < m) and grid[ii, jj] < h:
+            while (0 <= ii < r and 0 <= jj < c) and grid[ii, jj] < h:
                 dist += 1
                 ii += di
                 jj += dj
                     
-                if (0 <= ii < n and 0 <= jj < m) and grid[ii][jj] >= h:
+                if (0 <= ii < r and 0 <= jj < c) and grid[ii][jj] >= h:
                     dist += 1
                
             count *= dist
