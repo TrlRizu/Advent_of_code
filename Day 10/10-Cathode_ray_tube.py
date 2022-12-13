@@ -38,17 +38,3 @@ print(p1)
 for r in range(6):
     print(''.join(p2[r]))
 
-# for c in range(40):
-#     for r in range(6):
-#         a,b = count//40, count%40
-#         counter = r * 40 + c + 1
-#         if abs(X-b) <= 1:
-#             p2[a][b] = '█' 
-#         else:
-#             p2[a][b] = ' ' 
-# print(p2)
-
-# if abs(X-b) <= 1:
-#             p2[a][b] = '█' 
-#         else:
-#             p2[a][b] = ' '
