@@ -18,17 +18,15 @@ for line in data.split('\n\n'):
     parse(TRUE, true)
     parse(FALSE, false)
 
-START = deepcopy(monkey)
+M = deepcopy(monkey)
 
-
-lcm = 1
+mod = 1
 for x in DIV:
-    lcm *= x
-print(lcm)
+    mod *= x
 
 for part in [1,2]:
-    C = [0] * len(monkey)
-    monkey = deepcopy(START)
+    C = [0] * len(M)
+    monkey = deepcopy(monkey)
     for t in range(20 if part==1 else 10000):
         for i in range(len(monkey)):
             for item in monkey[i]:
@@ -36,7 +34,7 @@ for part in [1,2]:
                 item = OP[i](item)
                 
                 if part == 2:
-                    item %= lcm
+                    item %= mod
                 
                 if part == 1:
                     item = (item // 3)
