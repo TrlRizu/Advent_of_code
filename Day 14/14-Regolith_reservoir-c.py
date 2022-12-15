@@ -1,7 +1,6 @@
 with open("14-input.txt") as f:
     lines = f.read().strip().split("\n")
 
-# start = 500, 0 
 filled = set()
 
 for line in lines:

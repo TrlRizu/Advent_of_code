@@ -1,7 +1,6 @@
 with open("14-input.txt") as f:
     lines = f.read().strip().split("\n")
 
-sand_source = 500, 0
 filled = set()
 
 for line in lines:
@@ -14,14 +13,14 @@ for line in lines:
                 filled.add((x1,y))
                 filled.add((x, y1))
         
-max_y = max([coord[1] for coord in filled])
+ymax = max([coord[1] for coord in filled])
 
 def sim(pt):
     global filled
     x, y = 500, 0
     
     if pt == 1:
-        while y <= max_y:
+        while y <= ymax:
             if (x, y + 1) not in filled:
                 y += 1
                 continue
@@ -41,7 +40,7 @@ def sim(pt):
         if (x, y) in filled:
             return (x, y)
 
-        while y <= max_y:
+        while y <= ymax:
             if (x, y + 1) not in filled:
                 y += 1
                 continue
